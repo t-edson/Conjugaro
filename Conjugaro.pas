@@ -3,14 +3,6 @@ unit Conjugaro;
 interface
 uses
   Classes, SysUtils;
-const
-     verb1 : array[1..10] of string[10] =  {verbos de primera terminacion}
-              ('copi','borr','busc','clasific','ingres',
-               'analiz','llam','enseñ','ayud','interactu');
-     verb2 : array[1..1] of string[10] =    {verbos de segunda terminacion}
-              ('met');
-     verb3 : array[1..1] of string[10] =    {verbos de tercera terminacion}
-              ('viv');
 
 type
   //Modos verbales.
@@ -43,18 +35,10 @@ type
     per2Plur,       //Segunda persona en plural
     per3Plur        //Tercera persona en plural
   );
-const
-    pasad = 1;
-    prese = 2;
-    futur = 3;
-
-type cad14 = string[14];
-     cad10 = string[10];
-     cad12 = string[12];
-
-var
-    palabra : array[1..20] of cad10;
-    oracion : string ;
+type
+   cad10 = string[10];
+   cad12 = string[12];
+   cad14 = string[14];
 
 procedure termVerbReg1(modo: TModoVerb; tiempo: TTpoVerb; persona: TPersVerb;
                       negat: boolean; out aux, term: cad12);
@@ -252,30 +236,6 @@ begin
       end;
     end;
   end;
-end;
-
-Procedure Descomponer(cad:string; var n:byte);
-var l : byte ;
-begin
-   n:=1;l:=pos(' ',cad);
-   if l<>0 then
-      repeat palabra[n] := copy(cad,1,l-1);
-             delete(cad,1,l);
-             l := pos(' ',cad);
-             inc(n)
-      until l=0;
-   palabra[n]:=cad;
-end;
-
-function EnVerbo(v:string ;VAR ter,n:byte):boolean;
-var t:byte;
-begin n:=1;
-  EnVerbo:=false;
-  repeat
-    if v=verb1[n] then
-      begin EnVerbo:=true;ter:=1;end;
-    n:=n+1
-  until n=10;
 end;
 
 Procedure Conjugar(var verbo: string; modo: TModoVerb; tie: TTpoVerb; per: TPersVerb);
