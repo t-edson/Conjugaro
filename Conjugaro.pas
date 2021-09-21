@@ -57,15 +57,16 @@ var
     oracion : string ;
 
 procedure termVerbReg1(modo: TModoVerb; tiempo: TTpoVerb; persona: TPersVerb;
-                      out aux, term: cad10);
+                      out aux, term: cad12);
 Procedure Conjugar(var verbo: string; modo: TModoVerb; tie: TTpoVerb; per: TPersVerb);
 
 implementation
 procedure termVerbReg1(modo: TModoVerb; tiempo: TTpoVerb; persona: TPersVerb;
-                      out aux, term: cad10);
+                      negat: boolean; out aux, term: cad12);
 {Retorna la terminación verbal para un verbo regular de la primera terminación, como
 por ejemplo "Cantar" o "Amar".
-Las termianciones a devolver dependerán del modo del tiempo y de la persona.
+Las terminaciones a devolver dependerán del modo del tiempo y de la persona.
+El parámetro "negat" solo se aplica para el modo imperativo.
 La terminación (morfema) se devuelve en el parámetro "term". Si hay un auxiliar como
 "haya", este se retorna en "aux";
 }
@@ -167,10 +168,90 @@ begin
         per3Plur: begin aux := 'habrían'; term := 'ado'; end;
         end;
       end;
-    modSubjunt: ;
-    modImperat: ;
+    modSubjunt:
+      case tiempo of
+      //Tiempos simples
+      tpoPresente:    //Presente     (amo, amas, ama, ...)
+        case persona of
+        per1Sing: term := 'e';   //amo
+        per2Sing: term := 'es';  //amas
+        per3Sing: term := 'e';
+        per1Plur: term := 'emos';
+        per2Plur: term := 'éis';
+        per3Plur: term := 'en';
+        end;
+      tpoPretImper:   //Pretérito imperfecto (amaba, amabas, ...)
+        case persona of  //En este tiempo se admiten dos formas, pero se toma solo una.
+        per1Sing: term := 'ara';   //También puede ser "ase"
+        per2Sing: term := 'aras';  //También puede ser "ases"
+        per3Sing: term := 'ara';   //También puede ser  "ase"
+        per1Plur: term := 'áramos'; //También puede ser
+        per2Plur: term := 'arais';  //También puede ser
+        per3Plur: term := 'aran';   //También puede ser
+        end;
+      tpoFuturSim:    //Futuro simple (amaré, amarás, )
+        case persona of
+        per1Sing: term := 'are';
+        per2Sing: term := 'ares';
+        per3Sing: term := 'are';
+        per1Plur: term := 'áremos';
+        per2Plur: term := 'areis';
+        per3Plur: term := 'aren';
+        end;
+      //Tiempos compuestos
+      tpoPretPerfCom: //Pretérito perfecto compuesto (he amado, has amado, ...)
+        case persona of
+        per1Sing: begin aux := 'haya'; term := 'ado'; end;
+        per2Sing: begin aux := 'hayas'; term := 'ado'; end;
+        per3Sing: begin aux := 'haya'; term := 'ado'; end;
+        per1Plur: begin aux := 'hayamos'; term := 'ado'; end;
+        per2Plur: begin aux := 'hayáis'; term := 'ado'; end;
+        per3Plur: begin aux := 'hayan'; term := 'ado'; end;
+        end;
+      tpoPretPluscua: //Pretérito pluscuamperfecto (había amado, habías amado, ...)
+        case persona of
+        per1Sing: begin aux := 'hubiera'; term := 'ado'; end;
+        per2Sing: begin aux := 'hubieras'; term := 'ado'; end;
+        per3Sing: begin aux := 'hubiera'; term := 'ado'; end;
+        per1Plur: begin aux := 'hubiéramos'; term := 'ado'; end;
+        per2Plur: begin aux := 'hubierais'; term := 'ado'; end;
+        per3Plur: begin aux := 'hubieran'; term := 'ado'; end;
+        end;
+      tpoFuturPerf:   //Futuro perfecto (abré amado, habrás amado, ...)
+        case persona of
+        per1Sing: begin aux := 'hubiere'; term := 'ado'; end;
+        per2Sing: begin aux := 'hubieres'; term := 'ado'; end;
+        per3Sing: begin aux := 'hubiere'; term := 'ado'; end;
+        per1Plur: begin aux := 'hubiéremos'; term := 'ado'; end;
+        per2Plur: begin aux := 'hubiereis'; term := 'ado'; end;
+        per3Plur: begin aux := 'hubieren'; term := 'ado'; end;
+        end;
+      else
+        term := '';  //Indicador de que no existe el tiempo
+      end;
+    modImperat: begin
+      //En este modo solo hay un tiempo, pero hay modo negativo.
+      if not negat then begin  //Modo afirmativo
+        case persona of
+        per1Sing: begin term := ''; end;  //No aplicable
+        per2Sing: begin term := 'a'; end;
+        per3Sing: begin term := 'e'; end;
+        per1Plur: begin term := 'emos'; end;
+        per2Plur: begin term := 'ad'; end;
+        per3Plur: begin term := 'en'; end;
+        end;
+      end else begin  //Modo negativo
+        case persona of
+        per1Sing: begin aux := ''; term := ''; end;  //No aplicable
+        per2Sing: begin aux := 'no'; term := 'es'; end;
+        per3Sing: begin aux := 'no'; term := 'e'; end;
+        per1Plur: begin aux := 'no'; term := 'emos'; end;
+        per2Plur: begin aux := 'no'; term := 'éis'; end;
+        per3Plur: begin aux := 'no'; term := 'en'; end;
+        end;
+      end;
+    end;
   end;
-
 end;
 
 Procedure Descomponer(cad:string; var n:byte);
@@ -204,7 +285,7 @@ infinitivo, es decir, con terminación "ar", "er" o "ir".
 var
    raiz  : string[10];  //Raiz del verbo
    termin: string[10];   //Terminación del verbo
-   morf , aux: string [10];
+   morf , aux: cad12;
 begin
    termin := copy(verbo,length(verbo)-1,2);
    raiz:= copy(verbo,1,length(verbo)-2);

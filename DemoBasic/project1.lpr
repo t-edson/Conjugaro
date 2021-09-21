@@ -4,14 +4,11 @@ program project1;
 }
 uses Conjugaro;
 var
-  modo: TModoVerb;
   verbo: String;
 begin
   verbo := 'cantar';
   conjugar(verbo, modIndicat, tpoPresente, per1Plur);
   //writeln('=== Modo indicativo ====');
-  //modo := modIndicat;
-
   writeln('Verbo=' + verbo);
   ReadLn;
 end.
