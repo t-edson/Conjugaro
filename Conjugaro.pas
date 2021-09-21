@@ -1,3 +1,7 @@
+{Librería con funciones para la conjugación de verbos en español.
+De momento solo se soportan las conjugaciones de verbos regulares.
+                             Creado por Tito Hinstroza: 20/09/2021
+}
 unit Conjugaro;
 {$mode objfpc}{$H+}
 interface
