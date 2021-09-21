@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="11"/>
+    <BuildModes Active="Default"/>
+    <Units Count="3">
+      <Unit0>
+        <Filename Value="project1.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="52" Y="11"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="..\Conjugaro.pas"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="197"/>
+        <CursorPos X="37" Y="200"/>
+        <UsageCount Value="20"/>
+        <Loaded Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="D:\Maestría\Teoría de Lenguaje de Programación\Proyecto\etVerbo.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="3"/>
+        <UsageCount Value="10"/>
+      </Unit2>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="86" Column="16" TopLine="63"/>
+      </Position1>
+      <Position2>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="92" Column="31" TopLine="75"/>
+      </Position2>
+      <Position3>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="93" Column="32" TopLine="75"/>
+      </Position3>
+      <Position4>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="94" Column="31" TopLine="75"/>
+      </Position4>
+      <Position5>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="141" TopLine="123"/>
+      </Position5>
+      <Position6>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="88" Column="18" TopLine="73"/>
+      </Position6>
+      <Position7>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="7" Column="10"/>
+      </Position7>
+      <Position8>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="212" Column="29" TopLine="193"/>
+      </Position8>
+      <Position9>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="226" Column="40" TopLine="202"/>
+      </Position9>
+      <Position10>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="7"/>
+      </Position10>
+      <Position11>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="206" Column="10" TopLine="195"/>
+      </Position11>
+      <Position12>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="208" TopLine="187"/>
+      </Position12>
+      <Position13>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="200" Column="55" TopLine="192"/>
+      </Position13>
+      <Position14>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="213" TopLine="193"/>
+      </Position14>
+      <Position15>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="207" Column="8" TopLine="188"/>
+      </Position15>
+      <Position16>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="61" TopLine="49"/>
+      </Position16>
+      <Position17>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="60" Column="44" TopLine="41"/>
+      </Position17>
+      <Position18>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="201" TopLine="188"/>
+      </Position18>
+      <Position19>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="60" Column="43" TopLine="41"/>
+      </Position19>
+      <Position20>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="65" Column="42" TopLine="46"/>
+      </Position20>
+      <Position21>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="224" Column="9" TopLine="205"/>
+      </Position21>
+      <Position22>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="225" Column="7" TopLine="206"/>
+      </Position22>
+      <Position23>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="222" Column="23" TopLine="211"/>
+      </Position23>
+      <Position24>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="238" Column="13" TopLine="218"/>
+      </Position24>
+      <Position25>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="61" TopLine="42"/>
+      </Position25>
+      <Position26>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="200" TopLine="192"/>
+      </Position26>
+      <Position27>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="60" TopLine="39"/>
+      </Position27>
+      <Position28>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="11" Column="10"/>
+      </Position28>
+      <Position29>
+        <Filename Value="..\Conjugaro.pas"/>
+        <Caret Line="61" Column="37" TopLine="42"/>
+      </Position29>
+      <Position30>
+        <Filename Value="project1.lpr"/>
+        <Caret Line="11" Column="19"/>
+      </Position30>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes Count="0" ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>
