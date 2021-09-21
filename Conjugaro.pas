@@ -1,6 +1,9 @@
-{Librería con funciones para la conjugación de verbos en español.
-De momento solo se soportan las conjugaciones de verbos regulares.
-                             Creado por Tito Hinstroza: 20/09/2021
+{Librería con funciones para la conjugación de verbos en español. De momento
+solo se soportan las conjugaciones de verbos regulares.
+No se consideran todas las variaciones de los verbos. Por ejemplo, solo se
+considera la conjugación de una de las formas para el plural de la segunda
+persona (ustedes o vosotros).
+                             Creado por Tito Hinostroza: 20/09/2021
 }
 unit Conjugaro;
 {$mode objfpc}{$H+}
@@ -44,11 +47,28 @@ type
    cad12 = string[12];
    cad14 = string[14];
 
-procedure termVerbReg1(modo: TModoVerb; tiempo: TTpoVerb; persona: TPersVerb;
+  function nombreTiempo(tpo: TTpoVerb): string;
+  procedure termVerbReg1(modo: TModoVerb; tiempo: TTpoVerb; persona: TPersVerb;
                       negat: boolean; out aux, term: cad12);
-Procedure Conjugar(var verbo: string; modo: TModoVerb; tie: TTpoVerb; per: TPersVerb);
+  procedure Conjugar(var verbo: string; modo: TModoVerb; tie: TTpoVerb; per: TPersVerb);
 
 implementation
+function nombreTiempo(tpo: TTpoVerb): string;
+{Devuelve una cadena con el nombre del tiempo verbal.}
+begin
+  case tpo of
+  tpoPresente   : exit('Presente');
+  tpoPretImper  : exit('Pretérito imperfecto');
+  tpoPretPerfSim: exit('Pretérito perfecto simple');
+  tpoFuturSim   : exit('Futuro simple');
+  tpoCondSim    : exit('Condicional simple');
+  tpoPretPerfCom: exit('Pretérito perfecto compuesto');
+  tpoPretPluscua: exit('Pretérito pluscuamperfecto');
+  tpoPretAnt    : exit('Pretérito anterior');
+  tpoFuturPerf  : exit('Futuro perfecto');
+  tpoCondPerf   : exit('Condicional perfecto');
+  end;
+end;
 procedure termVerbReg1(modo: TModoVerb; tiempo: TTpoVerb; persona: TPersVerb;
                       negat: boolean; out aux, term: cad12);
 {Retorna la terminación verbal para un verbo regular de la primera terminación, como
@@ -259,7 +279,7 @@ begin
   if termin = 'er' then termVerbReg1(modo, tie, per, neg, aux, morf);
   if termin = 'ir' then termVerbReg1(modo, tie, per, neg, aux, morf);
   if aux<>'' then begin
-   verbo := raiz + morf;
+   verbo := aux + ' ' + raiz + morf;
   end else begin
    verbo := raiz + morf;
   end;
