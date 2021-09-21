@@ -5,11 +5,14 @@ program project1;
 uses Conjugaro;
 var
   verbo: String;
+  persona: TPersVerb;
 begin
-  verbo := 'cantar';
-  conjugar(verbo, modIndicat, tpoPresente, per1Plur);
+  for persona := per1Sing to per3Plur do begin
+    verbo := 'cantar';
+    conjugar(verbo, modIndicat, tpoPresente, persona);
+    writeln('Verbo=' + verbo);
+  end;
   //writeln('=== Modo indicativo ====');
-  writeln('Verbo=' + verbo);
   ReadLn;
 end.
 

@@ -57,7 +57,7 @@ var
     oracion : string ;
 
 procedure termVerbReg1(modo: TModoVerb; tiempo: TTpoVerb; persona: TPersVerb;
-                      out aux, term: cad12);
+                      negat: boolean; out aux, term: cad12);
 Procedure Conjugar(var verbo: string; modo: TModoVerb; tie: TTpoVerb; per: TPersVerb);
 
 implementation
@@ -286,17 +286,19 @@ var
    raiz  : string[10];  //Raiz del verbo
    termin: string[10];   //Terminación del verbo
    morf , aux: cad12;
+   neg: Boolean;
 begin
-   termin := copy(verbo,length(verbo)-1,2);
-   raiz:= copy(verbo,1,length(verbo)-2);
-        if termin = 'ar' then termVerbReg1(modo, tie, per, aux, morf);
-        if termin = 'er' then termVerbReg1(modo, tie, per, aux, morf);
-        if termin = 'ir' then termVerbReg1(modo, tie, per, aux, morf);
-        if aux<>'' then begin
-          verbo := raiz + morf;
-        end else begin
-          verbo := raiz + morf;
-        end;
+  neg := false;
+  termin := copy(verbo,length(verbo)-1,2);
+  raiz:= copy(verbo,1,length(verbo)-2);
+  if termin = 'ar' then termVerbReg1(modo, tie, per, neg, aux, morf);
+  if termin = 'er' then termVerbReg1(modo, tie, per, neg, aux, morf);
+  if termin = 'ir' then termVerbReg1(modo, tie, per, neg, aux, morf);
+  if aux<>'' then begin
+   verbo := raiz + morf;
+  end else begin
+   verbo := raiz + morf;
+  end;
 end;
 
 //function EsVerbo(a: cad12; var term, modo;
